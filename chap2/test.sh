@@ -5,4 +5,4 @@ echo -n "N--> "
 read n
 
 # 切り出し
-head -n $n popular-names.txt
+tail -n $n popular-names.txt
