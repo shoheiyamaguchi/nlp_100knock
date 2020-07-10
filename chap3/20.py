@@ -1,8 +1,5 @@
-import json
-file_path = './jawiki-country.json'
-with open(file_path) as data_file:
-    for line in data_file:
-        data = json.loads(line)
-        if data['title'] == 'イギリス':
-            print(data['text'])
-            break
+import pandas as pd
+
+df = pd.read_json('jawiki-country.json.gz', lines=True)
+ukText = df.query('title=="イギリス"')['text'].values[0]
+print(ukText)
